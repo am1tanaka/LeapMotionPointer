@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LeapMotionPointer/Demo/Demo.unity
+    guid: 16ca87d26c7e1f14996d89548792274c

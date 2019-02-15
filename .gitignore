@@ -5,7 +5,8 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
-Assets/LeapMotion*
+Assets/LeapMotion.meta
+Assets/LeapMotion/*
 
 # Visual Studio cache directory
 .vs/
