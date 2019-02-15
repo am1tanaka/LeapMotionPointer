@@ -7,8 +7,6 @@ namespace AM1.LeapMotionPointer.Demo
 {
     public class PointerMover : MonoBehaviour
     {
-        [Tooltip("クリック時にボールに加える力"), SerializeField]
-        float addPower = 100f;
         [Tooltip("クリック時の色"), SerializeField]
         Color clickColor = Color.red;
 
@@ -29,31 +27,27 @@ namespace AM1.LeapMotionPointer.Demo
             if (!LeapMotionManagerEx.isEnable) return;
 
             transform.position = LeapMotionManagerEx.screenPosition;
-            Vector3 contactPoint;
-            GameObject go = getPointedGameObject(out contactPoint);
-            Rigidbody rb = null;
-            if (go != null)
-            {
-                rb = go.GetComponent<Rigidbody>();
-            }
 
-            // クリック
+            // クリック時にポインターの経過時間をリセット
             if (LeapMotionManagerEx.isPressDown)
             {
                 clickTime = 0;
-                myMaterial.color = clickColor;
-
-                if ((go != null) && (rb != null))
-                {
-                    rb.AddForceAtPosition(Camera.main.transform.forward * addPower, contactPoint);
-                }
             }
-            else if (LeapMotionManagerEx.isPress)
+            // 押していたらSphereを運ぶ
+            if (LeapMotionManagerEx.isPress)
             {
-                clickTime += Time.deltaTime;
                 myMaterial.color = Color.Lerp(clickColor, halfColor, clickTime);
+                clickTime += Time.deltaTime;
 
-                if ((go != null) && (rb != null))
+                Vector3 contactPoint;
+                GameObject go = getPointedGameObject(out contactPoint);
+                Rigidbody rb = null;
+                if (go != null)
+                {
+                    rb = go.GetComponent<Rigidbody>();
+                }
+
+                if (rb != null)
                 {
                     Vector3 move = contactPoint - go.transform.position;
                     move.z = 0;
@@ -62,6 +56,7 @@ namespace AM1.LeapMotionPointer.Demo
             }
             else
             {
+                // 押してなかったら色を戻す
                 myMaterial.color = defaultColor;
             }
         }
