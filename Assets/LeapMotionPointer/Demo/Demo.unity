@@ -662,8 +662,8 @@ Transform:
   m_Children:
   - {fileID: 1547602300}
   - {fileID: 828473771}
-  - {fileID: 268344711}
   - {fileID: 1588481597}
+  - {fileID: 268344711}
   - {fileID: 1147072310}
   - {fileID: 1726048593}
   - {fileID: 340329348}
@@ -1064,7 +1064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf61987de11d0d4c8c112ed14324739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addPower: 500
   clickColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1547602300 stripped
 Transform:

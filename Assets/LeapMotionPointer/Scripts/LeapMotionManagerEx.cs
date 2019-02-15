@@ -21,7 +21,7 @@ namespace AM1.LeapMotionPointer
         [Tooltip("左右読み取り有効幅"), SerializeField, Range(0, 1)]
         float visibleSize = 0.15f;
         [Tooltip("読み取り下端"), SerializeField, Range(0, 1)]
-        float visibleUnder = 0.1f;
+        float visibleUnder = 0.25f;
         [Tooltip("クリック閾値"), SerializeField, Range(0, 1)]
         float clickThreshold = 0.03f;
         [Tooltip("傾き限界値。この値をZ軸回転が越えたら、クリックの判定はしません。"), SerializeField, Range(0, 1)]

@@ -72,7 +72,7 @@ MonoBehaviour:
   ModelPool: []
   targetCamera: {fileID: 0}
   visibleSize: 0.15
-  visibleUnder: 0.1
+  visibleUnder: 0.25
   clickThreshold: 0.03
   bankLimit: 0.2
   viewportClickLimit: 0
