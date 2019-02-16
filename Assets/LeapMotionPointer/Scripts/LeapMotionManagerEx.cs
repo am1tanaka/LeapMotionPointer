@@ -18,11 +18,11 @@ namespace AM1.LeapMotionPointer
         [Header("操作用の値に変換するための設定")]
         [Tooltip("スクリーン座標に変換する対象のカメラ。未設定の場合はCamera.mainを利用。Camera.mainもnullの場合はスクリーン座標への変換はしません。"), SerializeField]
         Camera targetCamera;
-        [Tooltip("左右読み取り有効幅"), SerializeField, Range(0, 1)]
-        float visibleSize = 0.15f;
+        [Tooltip("手の動きとカーソル移動を対応づける係数"), SerializeField, Range(1f, 20f)]
+        float moveRate = 8f;
         [Tooltip("読み取り下端"), SerializeField, Range(0, 1)]
         float visibleUnder = 0.25f;
-        [Tooltip("クリック閾値"), SerializeField, Range(0, 1)]
+        [Tooltip("クリック閾値"), SerializeField, Range(0.01f, 1)]
         float clickThreshold = 0.03f;
         [Tooltip("傾き限界値。この値をZ軸回転が越えたら、クリックの判定はしません。"), SerializeField, Range(0, 1)]
         float bankLimit = 0.2f;
@@ -165,7 +165,7 @@ namespace AM1.LeapMotionPointer
             }
 
             fpos.z = 0f;
-            fpos = fpos / visibleSize;
+            fpos = fpos * moveRate;
             if (clickState == CLICK_STATE.NONE)
             {
                 // 先にカーソルが無効だったら、今回の座標にする
