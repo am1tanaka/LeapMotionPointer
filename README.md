@@ -1,7 +1,7 @@
 # LeapMotionPointer
 Leap Motionでクリック操作をするためのUnity用のスクリプトです。
 
-![Leap Motion Pointer Demo](./Images/lm190216.gif)
+![Leap Motion Pointer Demo](https://cdn-ak.f.st-hatena.com/images/fotolife/a/am1tanaka/20190217/20190217005740.gif)
 
 使い方は[こちら](http://am1tanaka.hatenablog.com/entry/2019/02/17/0135)をご覧ください。
 
